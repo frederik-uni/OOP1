@@ -6,7 +6,7 @@ import java.util.List;
 public class Module<T extends ModuleStructure> {
     private final String name;
     private final Class<T> aClass;
-    private final String description;
+    public final String description;
     public Module(Class<T> aClass, String description) {
         this.aClass = aClass;
         this.name = aClass.getSimpleName();
