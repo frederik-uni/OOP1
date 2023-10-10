@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
-    private static ArrayList<Module> modules = new ArrayList<>();
+    private static final ArrayList<Module> modules = new ArrayList<>();
 
     public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         register();
