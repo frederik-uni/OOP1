@@ -43,7 +43,7 @@ public class ModuleManager {
         if (!path.startsWith(".")) {
             path = "."+path;
         }
-        InputStream stream = Thread.currentThread().getContextClassLoader()
+        InputStream stream = ClassLoader.getSystemClassLoader()
                 .getResourceAsStream(path);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         Set<Class> res = new HashSet<>();
