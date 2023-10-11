@@ -19,6 +19,7 @@ public class Main {
 
             String res = scanner.nextLine();
             arr = Arrays.asList(res.split(" "));
+            scanner.close();
         } else {
             arr = Arrays.asList(args);
         }

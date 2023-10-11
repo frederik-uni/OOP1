@@ -1,5 +1,6 @@
 package modules.circle;
 
+import modules.ModuleDescription;
 import modules.ModuleStructure;
 
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Objects;
 
 import static java.lang.Double.parseDouble;
 
+@ModuleDescription("Requires char(r, d, u, v) and double")
 public class CircleCalc extends ModuleStructure {
     public CircleCalc(List<String> args) {
         super(args);

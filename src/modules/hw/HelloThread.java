@@ -1,11 +1,13 @@
 package modules.hw;
 
+import modules.ModuleDescription;
 import modules.ModuleStructure;
 
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
+@ModuleDescription("Optional int")
 public class HelloThread extends ModuleStructure {
     public HelloThread(List<String> args) {
         super(args);

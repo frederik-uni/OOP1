@@ -1,11 +1,12 @@
 package modules.prime;
 
+import modules.ModuleDescription;
 import modules.ModuleStructure;
 
 import java.util.List;
 
 import static java.lang.Integer.parseInt;
-
+@ModuleDescription("Requires int")
 public class IsPrime extends ModuleStructure {
     public IsPrime(List<String> args) {
         super(args);
@@ -27,5 +28,14 @@ public class IsPrime extends ModuleStructure {
             }
         }
         return true;
+    }
+
+
+    public int fak(int num) {
+        int res = 1;
+        for (int i = num; i > 0; i -= 1) {
+            res *= num;
+        }
+        return res;
     }
 }
