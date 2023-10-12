@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        ArrayList<Module> modules = ModuleManager.getInstance().getModules();
+        ArrayList<Module<?>> modules = ModuleManager.getInstance().getModules();
         List<String> arr;
         if (args.length == 0) {
             Scanner scanner = new Scanner(System.in);
@@ -28,7 +28,7 @@ public class Main {
             return;
         }
         String m = arr.get(0).toLowerCase();
-        Optional<Module> module = modules.stream().filter(item -> Objects.equals(item.getName().toLowerCase(), m)).findFirst();
+        Optional<Module<?>> module = modules.stream().filter(item -> Objects.equals(item.getName().toLowerCase(), m)).findFirst();
         if (!module.isPresent()) {
             System.out.println("No module found");
         } else {

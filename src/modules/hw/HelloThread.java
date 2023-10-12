@@ -14,7 +14,7 @@ public class HelloThread extends ModuleStructure {
         int n;
         try {
             n = parseInt(args.get(1));
-        }catch (Exception e) {
+        } catch (Exception e) {
             n = 10;
         }
 

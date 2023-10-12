@@ -21,6 +21,7 @@ public class CircleModule {
         circle.calcMass();
         return circle;
     }
+
     public static CircleModule fromDurchmesser(double durchmesser) {
         CircleModule circle = new CircleModule();
         circle.radius = durchmesser / 2;
@@ -38,6 +39,7 @@ public class CircleModule {
         circle.calcMass();
         return circle;
     }
+
     public static CircleModule fromVolume(double v) {
         CircleModule circle = new CircleModule();
         circle.radius = Math.sqrt(v / Math.PI);
@@ -46,11 +48,13 @@ public class CircleModule {
         circle.calcMass();
         return circle;
     }
+
     private void calcUmfang() {
         this.umfang = this.durchmesser * Math.PI;
     }
+
     private void calcMass() {
-        this.volume = this.radius * this.radius  * Math.PI;
+        this.volume = this.radius * this.radius * Math.PI;
     }
 
     public double getRadius() {

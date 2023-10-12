@@ -13,7 +13,7 @@ public class GetFakultaet extends ModuleStructure {
         super(args);
         try {
             System.out.println(fak(parseInt(args.get(1))));
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Not a valid number");
         }
     }

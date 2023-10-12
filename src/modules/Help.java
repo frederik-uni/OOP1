@@ -3,11 +3,11 @@ package modules;
 import java.util.List;
 
 @ModuleDescription
-public class Help extends ModuleStructure{
+public class Help extends ModuleStructure {
     public Help(List<String> args) {
         super(args);
-        for(Module module : ModuleManager.getInstance().getModules()) {
-            System.out.println(module.getName()+"       "+ module.description);
+        for (Module module : ModuleManager.getInstance().getModules()) {
+            System.out.println(module.getName() + "       " + module.description);
         }
     }
 }
