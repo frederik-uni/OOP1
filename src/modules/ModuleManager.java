@@ -27,26 +27,26 @@ public class ModuleManager {
     }
 
     private void register() {
-        for(Class clazz : findAllClassesUsingClassLoader("")) {
+        for(Class<?> clazz : findAllClassesUsingClassLoader("modules")) {
             if (clazz == null) {
                 continue;
             }
             if (clazz.isAnnotationPresent(ModuleDescription.class)) {
-                ModuleDescription annotation = (ModuleDescription)clazz.getAnnotation(ModuleDescription.class);
+                ModuleDescription annotation = clazz.getAnnotation(ModuleDescription.class);
                 this.modules.add(new Module(clazz, annotation.value()));
             }
         }
     }
 
-    public Set<Class> findAllClassesUsingClassLoader(String packageName) {
+    public Set<Class<?>> findAllClassesUsingClassLoader(String packageName) {
         String path = packageName.replaceAll("[.]", "/");
-        if (!path.startsWith(".")) {
+        if (path.isEmpty()) {
             path = "."+path;
         }
-        InputStream stream = ClassLoader.getSystemClassLoader()
-                .getResourceAsStream(path);
+        InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream(path);
+        assert stream != null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        Set<Class> res = new HashSet<>();
+        Set<Class<?>> res = new HashSet<>();
         for (String s: reader.lines().collect(Collectors.toSet())) {
             if(s.endsWith(".class")) {
                 res.add(getClass(s, packageName));
@@ -57,10 +57,9 @@ public class ModuleManager {
         return res;
     }
 
-    private Class getClass(String className, String packageName) {
+    private Class<?> getClass(String className, String packageName) {
         try {
-            String name = packageName + "."
-                    + className.substring(0, className.lastIndexOf('.'));
+            String name = packageName + "." + className.substring(0, className.lastIndexOf('.'));
             if (name.startsWith(".")) {
                 name = name.substring(1);
             }
