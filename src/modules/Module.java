@@ -5,15 +5,15 @@ import java.util.List;
 
 public class Module<T extends ModuleStructure> {
     private final String name;
-    private final Class<T> aClass;
+    private final Class<T> clazz;
     public final String description;
-    public Module(Class<T> aClass, String description) {
-        this.aClass = aClass;
-        this.name = aClass.getSimpleName();
+    public Module(Class<T> clazz, String description) {
+        this.clazz = clazz;
+        this.name = clazz.getSimpleName();
         this.description = description;
     }
-    public ModuleStructure run(List<String> args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return aClass.getConstructor(List.class).newInstance(args);
+    public void run(List<String> args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        this.clazz.getConstructor(List.class).newInstance(args);
     }
 
     public String getName() {

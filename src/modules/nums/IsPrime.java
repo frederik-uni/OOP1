@@ -1,4 +1,4 @@
-package modules.prime;
+package modules.nums;
 
 import modules.ModuleDescription;
 import modules.ModuleStructure;
@@ -28,14 +28,5 @@ public class IsPrime extends ModuleStructure {
             }
         }
         return true;
-    }
-
-
-    public int fak(int num) {
-        int res = 1;
-        for (int i = num; i > 0; i -= 1) {
-            res *= num;
-        }
-        return res;
     }
 }
