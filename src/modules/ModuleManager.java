@@ -34,10 +34,19 @@ public class ModuleManager {
             if (clazz == null) {
                 continue;
             }
-            if (clazz.isAnnotationPresent(ModuleDescription.class)) {
-                ModuleDescription annotation = clazz.getAnnotation(ModuleDescription.class);
-                this.modules.add(new Module(clazz, annotation.value()));
+            try {
+                if (clazz.getSuperclass().equals(ModuleStructure.class)) {
+                    String description = "";
+                    if (clazz.isAnnotationPresent(ModuleDescription.class)) {
+                        ModuleDescription annotation = clazz.getAnnotation(ModuleDescription.class);
+                        description = annotation.value();
+                    }
+                    this.modules.add(new Module(clazz, description));
+
+                }
+            } catch (Exception ignored) {
             }
+
         }
     }
 
