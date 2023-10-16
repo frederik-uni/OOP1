@@ -12,14 +12,13 @@ public class Main {
         List<String> arr;
         if (args.length == 0) {
             Scanner scanner = new Scanner(System.in);
-            //TODO: first char to lower case
-            System.out.println("Available modules: " + modules.stream().map(Module::getName).collect(Collectors.joining(", ")));
+            System.out.println("Available modules: " + modules.stream().map(Module::getName).map(Main::firstLower).collect(Collectors.joining(", ")));
 
             System.out.print("Please insert args: ");
 
             String res = scanner.nextLine();
             arr = Arrays.asList(res.split(" "));
-            scanner.close();
+            //scanner.close();
         } else {
             arr = Arrays.asList(args);
         }
@@ -34,5 +33,9 @@ public class Main {
         } else {
             module.get().run(arr);
         }
+    }
+
+    private static String firstLower(String s) {
+        return s.subSequence(0, 1).toString().toLowerCase() + s.substring(1);
     }
 }
