@@ -16,6 +16,6 @@ public class TwoNums extends ModuleStructure {
         System.out.print("Int2: ");
         int int2 = scanner.nextInt();
         scanner.close();
-        System.out.println(int1 +" "+int2);
+        System.out.println("Res: " + (int1 + int2));
     }
 }

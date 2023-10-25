@@ -18,6 +18,7 @@ public class Main {
 
             String res = scanner.nextLine();
             arr = Arrays.asList(res.split(" "));
+            // Closes System.in
             //scanner.close();
         } else {
             arr = Arrays.asList(args);
