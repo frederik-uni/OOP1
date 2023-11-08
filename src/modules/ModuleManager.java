@@ -56,7 +56,9 @@ public class ModuleManager {
             path = "." + path;
         }
         InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream(path);
-        assert stream != null;
+        if (stream == null) {
+            return new HashSet<>();
+        }
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         Set<Class<?>> res = new HashSet<>();
         for (String s : reader.lines().collect(Collectors.toSet())) {

@@ -27,4 +27,9 @@ public class StringFromChar extends ModuleStructure {
         Arrays.fill(ch, c);
         return new String(ch, 0, n);
     }
+
+    public String build_stream(char c, int n ) {
+        char[] ch = new char[n];
+        return null;
+    }
 }
