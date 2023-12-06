@@ -18,7 +18,7 @@ public class IsPrime extends ModuleStructure {
         }
     }
 
-    public boolean is_prime(int num) {
+    public static boolean is_prime(int num) {
         if (num % 2 == 0) {
             return false;
         }

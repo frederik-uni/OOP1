@@ -29,7 +29,7 @@ public class Main {
         }
         String m = arr.get(0).toLowerCase();
         Optional<Module<?>> module = modules.stream().filter(item -> Objects.equals(item.getName().toLowerCase(), m)).findFirst();
-        if (!module.isPresent()) {
+        if (module.isEmpty()) {
             System.out.println("No module found");
         } else {
             module.get().run(arr);
